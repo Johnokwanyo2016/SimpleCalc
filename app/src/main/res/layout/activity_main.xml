@@ -1,193 +1,185 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
-
     <data>
         <variable
             name="viewModel"
-            type="com.example.app.viewmodel.CalculatorViewModel" />
+            type="com.example.simplecalc.viewmodel.CalculatorViewModel" />
     </data>
-
-    <FrameLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center">
+        android:orientation="vertical"
+        android:padding="16dp">
 
-        <LinearLayout
-            android:layout_width="wrap_content"
+        <EditText
+            android:id="@+id/input"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="16dp">
+            android:hint="0"
+            android:inputType="numberDecimal"
+            android:gravity="right"
+            android:textSize="24sp"
+            android:text="@={viewModel.input}" />
 
-            <EditText
-                android:id="@+id/input"
-                android:layout_width="match_parent"
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="4"
+            android:rowCount="5"
+            android:layout_marginTop="16dp">
+
+            <!-- Row 1 -->
+            <Button
+                android:id="@+id/button7"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:hint="0"
-                android:inputType="numberDecimal"
-                android:gravity="right"
-                android:textSize="24sp"
-                android:text="@={viewModel.input}" />
-
-            <GridLayout
-                android:layout_width="match_parent"
+                android:layout_row="0"
+                android:layout_column="0"
+                android:layout_columnWeight="1"
+                android:text="7"
+                android:onClick="@{() -> viewModel.onNumberClick('7')}" />
+            <Button
+                android:id="@+id/button8"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:columnCount="4"
-                android:rowCount="4"
-                android:layout_marginTop="16dp">
+                android:layout_row="0"
+                android:layout_column="1"
+                android:layout_columnWeight="1"
+                android:text="8"
+                android:onClick="@{() -> viewModel.onNumberClick('8')}" />
+            <Button
+                android:id="@+id/button9"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_row="0"
+                android:layout_column="2"
+                android:layout_columnWeight="1"
+                android:text="9"
+                android:onClick="@{() -> viewModel.onNumberClick('9')}" />
+            <Button
+                android:id="@+id/buttonDivide"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_row="0"
+                android:layout_column="3"
+                android:layout_columnWeight="1"
+                android:text="/"
+                android:onClick="@{() -> viewModel.onOperatorClick('/')}" />
 
-                <!-- Row 1 -->
-                <Button
-                    android:id="@+id/button7"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_row="0"
-                    android:layout_column="0"
-                    android:layout_columnWeight="1"
-                    android:text="7"
-                    android:onClick="@{() -> viewModel.onNumberClick('7')}" />
-                <Button
-                    android:id="@+id/button8"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_row="0"
-                    android:layout_column="1"
-                    android:layout_columnWeight="1"
-                    android:text="8"
-                    android:onClick="@{() -> viewModel.onNumberClick('8')}" />
-                <Button
-                    android:id="@+id/button9"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_row="0"
-                    android:layout_column="2"
-                    android:layout_columnWeight="1"
-                    android:text="9"
-                    android:onClick="@{() -> viewModel.onNumberClick('9')}" />
-                <Button
-                    android:id="@+id/buttonDivide"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_row="0"
-                    android:layout_column="3"
-                    android:layout_columnWeight="1"
-                    android:text="/"
-                    android:onClick="@{() -> viewModel.onOperatorClick('/')}" />
+            <!-- Row 2 -->
+            <Button
+                android:id="@+id/button4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_row="1"
+                android:layout_column="0"
+                android:layout_columnWeight="1"
+                android:text="4"
+                android:onClick="@{() -> viewModel.onNumberClick('4')}" />
+            <Button
+                android:id="@+id/button5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_row="1"
+                android:layout_column="1"
+                android:layout_columnWeight="1"
+                android:text="5"
+                android:onClick="@{() -> viewModel.onNumberClick('5')}" />
+            <Button
+                android:id="@+id/button6"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_row="1"
+                android:layout_column="2"
+                android:layout_columnWeight="1"
+                android:text="6"
+                android:onClick="@{() -> viewModel.onNumberClick('6')}" />
+            <Button
+                android:id="@+id/buttonMultiply"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_row="1"
+                android:layout_column="3"
+                android:layout_columnWeight="1"
+                android:text="*"
+                android:onClick="@{() -> viewModel.onOperatorClick('*')}" />
 
-                <!-- Row 2 -->
-                <Button
-                    android:id="@+id/button4"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_row="1"
-                    android:layout_column="0"
-                    android:layout_columnWeight="1"
-                    android:text="4"
-                    android:onClick="@{() -> viewModel.onNumberClick('4')}" />
-                <Button
-                    android:id="@+id/button5"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_row="1"
-                    android:layout_column="1"
-                    android:layout_columnWeight="1"
-                    android:text="5"
-                    android:onClick="@{() -> viewModel.onNumberClick('5')}" />
-                <Button
-                    android:id="@+id/button6"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_row="1"
-                    android:layout_column="2"
-                    android:layout_columnWeight="1"
-                    android:text="6"
-                    android:onClick="@{() -> viewModel.onNumberClick('6')}" />
-                <Button
-                    android:id="@+id/buttonMultiply"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_row="1"
-                    android:layout_column="3"
-                    android:layout_columnWeight="1"
-                    android:text="*"
-                    android:onClick="@{() -> viewModel.onOperatorClick('*')}" />
+            <!-- Row 3 -->
+            <Button
+                android:id="@+id/button1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_row="2"
+                android:layout_column="0"
+                android:layout_columnWeight="1"
+                android:text="1"
+                android:onClick="@{() -> viewModel.onNumberClick('1')}" />
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_row="2"
+                android:layout_column="1"
+                android:layout_columnWeight="1"
+                android:text="2"
+                android:onClick="@{() -> viewModel.onNumberClick('2')}" />
+            <Button
+                android:id="@+id/button3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_row="2"
+                android:layout_column="2"
+                android:layout_columnWeight="1"
+                android:text="3"
+                android:onClick="@{() -> viewModel.onNumberClick('3')}" />
+            <Button
+                android:id="@+id/buttonMinus"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_row="2"
+                android:layout_column="3"
+                android:layout_columnWeight="1"
+                android:text="-"
+                android:onClick="@{() -> viewModel.onOperatorClick('-')}" />
 
-                <!-- Row 3 -->
-                <Button
-                    android:id="@+id/button1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_row="2"
-                    android:layout_column="0"
-                    android:layout_columnWeight="1"
-                    android:text="1"
-                    android:onClick="@{() -> viewModel.onNumberClick('1')}" />
-                <Button
-                    android:id="@+id/button2"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_row="2"
-                    android:layout_column="1"
-                    android:layout_columnWeight="1"
-                    android:text="2"
-                    android:onClick="@{() -> viewModel.onNumberClick('2')}" />
-                <Button
-                    android:id="@+id/button3"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_row="2"
-                    android:layout_column="2"
-                    android:layout_columnWeight="1"
-                    android:text="3"
-                    android:onClick="@{() -> viewModel.onNumberClick('3')}" />
-                <Button
-                    android:id="@+id/buttonMinus"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_row="2"
-                    android:layout_column="3"
-                    android:layout_columnWeight="1"
-                    android:text="-"
-                    android:onClick="@{() -> viewModel.onOperatorClick('-')}" />
+            <!-- Row 4 -->
+            <Button
+                android:id="@+id/button0"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_row="3"
+                android:layout_column="0"
+                android:layout_columnWeight="1"
+                android:text="0"
+                android:onClick="@{() -> viewModel.onNumberClick('0')}" />
+            <Button
+                android:id="@+id/buttonDot"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_row="3"
+                android:layout_column="1"
+                android:layout_columnWeight="1"
+                android:text="."
+                android:onClick="@{() -> viewModel.onNumberClick('.')}" />
+            <Button
+                android:id="@+id/buttonEqual"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_row="3"
+                android:layout_column="2"
+                android:layout_columnWeight="1"
+                android:text="="
+                android:onClick="@{() -> viewModel.onEqualClick()}" />
+            <Button
+                android:id="@+id/buttonPlus"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_row="3"
+                android:layout_column="3"
+                android:layout_columnWeight="1"
+                android:text="+"
+                android:onClick="@{() -> viewModel.onOperatorClick('+')}" />
 
-                <!-- Row 4 -->
-                <Button
-                    android:id="@+id/button0"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_row="3"
-                    android:layout_column="0"
-                    android:layout_columnWeight="1"
-                    android:text="0"
-                    android:onClick="@{() -> viewModel.onNumberClick('0')}" />
-                <Button
-                    android:id="@+id/buttonDot"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_row="3"
-                    android:layout_column="1"
-                    android:layout_columnWeight="1"
-                    android:text="."
-                    android:onClick="@{() -> viewModel.onNumberClick('.')}" />
-                <Button
-                    android:id="@+id/buttonEqual"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_row="3"
-                    android:layout_column="2"
-                    android:layout_columnWeight="1"
-                    android:text="="
-                    android:onClick="@{() -> viewModel.onEqualClick()}" />
-                <Button
-                    android:id="@+id/buttonPlus"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_row="3"
-                    android:layout_column="3"
-                    android:layout_columnWeight="1"
-                    android:text="+"
-                    android:onClick="@{() -> viewModel.onOperatorClick('+')}" />
-
-            </GridLayout>
-        </LinearLayout>
-    </FrameLayout>
+        </GridLayout>
+    </LinearLayout>
 </layout>
