@@ -79,7 +79,7 @@ class MainActivity : AppCompatActivity() {
                 lastDot = false
             } catch (ex: Exception) {
                 editText.setText("Error")
-                stateError = true
+                stateError = false
                 lastNumeric = false
             }
         }
