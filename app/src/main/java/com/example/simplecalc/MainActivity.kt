@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
-
 import java.util.Stack
 import kotlin.math.*
 
@@ -40,7 +39,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun onClearClick(view: android.view.View) {
-        editText.setText("")
+        editText.setText("") // Clear the text field
         lastNumeric = false
         stateError = false
         lastDot = false
@@ -131,5 +130,12 @@ class MainActivity : AppCompatActivity() {
         if ((op1 == '*' || op1 == '/') && (op2 == '+' || op2 == '-')) return false
         if (op1 == '^' && (op2 != '^')) return false
         return true
+    }
+
+    fun onStartClick(view: android.view.View) {
+        editText.setText("") // Reset the calculator
+        lastNumeric = false
+        stateError = false
+        lastDot = false
     }
 }
